@@ -1,0 +1,46 @@
+ {{template "header"}}
+<h1>Hola mundo</h1>
+
+<form action="
+    ">
+    <label for="">Nombre:</label>
+    <input type="text" value="Escribe algo por favor " />
+</form>
+<h2>{{.Nombre}}</h2>
+<!-- variables-->
+{{with $valor := "Mi variable"}}
+<p>{{$valor}}</p>
+{{end}}
+
+<!-- Operadores logicos y condicionales 
+    
+         not !
+         and && 
+         or ||
+
+         eq == 
+         ne != 
+         lt <
+         le <=
+         gt >
+         >= ge
+    -->
+{{if not .Activo}}
+
+<p>El usuario esta activo en la plataforma</p>
+{{else}}
+<p>el usuario no esta activo</p>
+{{end}} {{if ( and .Activo .Admin )}}
+<p>Es el admin</p>
+{{else}}
+<p>No es admin</p>
+{{end}} {{if gt .Edad 20 }}
+<p>ya estas viejo</p>
+{{end}}
+
+<ul>
+    {{range .Cursos}} {{.Nombre}} {{end}}
+</ul>
+<br /> {{saludo "Giovani"}}
+<img src="../../static/img/chems2.jpg" alt="imagen de chems" width="300px" height="400px">
+<script src="../../static/js/main.js"></script>
